@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 */
 @Configuration
 @Import(MybatisManager.class)
-//@ImportResource("classpath:spring-context-mybatis.xml")
+@ImportResource("classpath:json.xml")
 @ComponentScan(basePackages = {"com.demeter.manager"},
     excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)

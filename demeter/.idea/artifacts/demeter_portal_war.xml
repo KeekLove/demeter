@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="demeter-portal:war">
+    <output-path>$PROJECT_DIR$/demeter-portal/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>demeter-portal</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="demeter-portal.war">
+      <element id="artifact" artifact-name="demeter-portal:war exploded" />
+    </root>
+  </artifact>
+</component>

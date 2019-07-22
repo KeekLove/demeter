@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface ManMapper {
     List<ManagerInfoDO> selectAll();
+
 }

@@ -5,6 +5,6 @@
         SELECT
         *
         FROM
-        manager_info;
+        manager_info
     </select>
 </mapper>

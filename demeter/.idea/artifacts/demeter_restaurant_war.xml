@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="demeter-restaurant:war">
+    <output-path>$PROJECT_DIR$/demeter-restaurant/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>demeter-restaurant</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="demeter-restaurant.war">
+      <element id="artifact" artifact-name="demeter-restaurant:war exploded" />
+    </root>
+  </artifact>
+</component>
