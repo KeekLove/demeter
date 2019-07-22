@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 */
 @Configuration
 @Import( {MybatisPortal.class, Transation.class, JedisConfig.class})
-//@ImportResource("classpath:spring-context-mybatis.xml")
+@ImportResource("classpath:json.xml")
 @ComponentScan(basePackages = {"com.demeter.portal"},
     excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)

@@ -6,12 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demeterrestaurant" />
-        <module name="demeterportal" />
-        <module name="demetercommon" />
-        <module name="demetermanage" />
+        <module name="demeter-common" />
+        <module name="demeter-portal" />
+        <module name="demeter-restaurant" />
+        <module name="demeter-manage" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel>
+      <module name="demeter" target="1.8" />
+      <module name="demeter-common" target="1.8" />
+      <module name="demeter-manage" target="1.8" />
+      <module name="demeter-portal" target="1.8" />
+      <module name="demeter-restaurant" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

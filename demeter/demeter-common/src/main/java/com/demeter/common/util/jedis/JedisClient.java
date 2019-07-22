@@ -47,7 +47,12 @@ public interface JedisClient {
     Long incr(String key);
     Long decr(String key);
 
-    // 时间
+    /**
+    *@Description 设置过期时间
+    *@Author 曾锦铭
+    *@DateTime 7/22/2019 7/22/2019
+    */
+    
     Long expire(String key, int second);
     Long ttl(String key);
 }
