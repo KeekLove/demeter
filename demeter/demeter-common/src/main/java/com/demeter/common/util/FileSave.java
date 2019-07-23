@@ -39,7 +39,7 @@ public class  FileSave{
             //将file 复制到toFile
             file.transferTo(toFile);
         }
-        return newFileName.toString();
+        return newFileName;
     }
 
     public String saveFile(MultipartFile file) throws IOException {

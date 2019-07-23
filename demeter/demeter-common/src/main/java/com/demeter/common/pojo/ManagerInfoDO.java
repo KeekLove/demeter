@@ -15,24 +15,24 @@ import java.sql.Date;
 */
 public class ManagerInfoDO implements Serializable {
     private Long id;
-    private String userName;
-    private String passWord;
+    private String username;
+    private String password;
     private int privilege;
     private Date createTime;
     private Date updateTime;
     private int del;
 
-    public ManagerInfoDO() {
-    }
-
-    public ManagerInfoDO(Long id, String userName, String passWord, int privilege, Date createTime, Date updateTime, int del) {
+    public ManagerInfoDO(Long id, String username, String password, int privilege, Date createTime, Date updateTime, int del) {
         this.id = id;
-        this.userName = userName;
-        this.passWord = passWord;
+        this.username = username;
+        this.password = password;
         this.privilege = privilege;
         this.createTime = createTime;
         this.updateTime = updateTime;
         this.del = del;
+    }
+
+    public ManagerInfoDO() {
     }
 
     public Long getId() {
@@ -43,20 +43,20 @@ public class ManagerInfoDO implements Serializable {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getPrivilege() {
@@ -95,8 +95,8 @@ public class ManagerInfoDO implements Serializable {
     public String toString() {
         return "ManagerInfoDO{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", privilege=" + privilege +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +

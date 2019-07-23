@@ -1,6 +1,8 @@
 package com.demeter.manager.config;
 
+import com.demeter.common.data.Transation;
 import com.demeter.common.mybatis.MybatisManager;
+import com.demeter.common.redis.JedisConfig;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -10,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 *@DateTime 2019/7/20 20:17
 */
 @Configuration
-@Import(MybatisManager.class)
+@Import({MybatisManager.class, JedisConfig.class, Transation.class, })
 @ImportResource("classpath:json.xml")
 @ComponentScan(basePackages = {"com.demeter.manager"},
     excludeFilters = {

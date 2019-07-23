@@ -13,7 +13,7 @@ import java.sql.Date;
 public class FoodInfoDO implements Serializable {
     private Long id;
     private String icon;
-    private int prize;
+    private Float prize;
     private String name;
     private String about;
     private String models;
@@ -23,13 +23,10 @@ public class FoodInfoDO implements Serializable {
     private Date updateTime;
     private int del;
 
-    /**
-     * 空参有参构造
-     */
     public FoodInfoDO() {
     }
 
-    public FoodInfoDO(Long id, String icon, int prize, String name, String about, String models, Long menuId, Long restaurantId, Date createTime, Date updateTime, int del) {
+    public FoodInfoDO(Long id, String icon, Float prize, String name, String about, String models, Long menuId, Long restaurantId, Date createTime, Date updateTime, int del) {
         this.id = id;
         this.icon = icon;
         this.prize = prize;
@@ -43,9 +40,6 @@ public class FoodInfoDO implements Serializable {
         this.del = del;
     }
 
-    /**
-     * get set 方法实现
-     */
     public Long getId() {
         return id;
     }
@@ -62,11 +56,11 @@ public class FoodInfoDO implements Serializable {
         this.icon = icon;
     }
 
-    public int getPrize() {
+    public Float getPrize() {
         return prize;
     }
 
-    public void setPrize(int prize) {
+    public void setPrize(Float prize) {
         this.prize = prize;
     }
 

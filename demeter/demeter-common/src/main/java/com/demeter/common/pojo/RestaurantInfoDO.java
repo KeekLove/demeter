@@ -13,7 +13,7 @@ import java.sql.Date;
 public class RestaurantInfoDO implements Serializable {
     private Long id;
     private int registerId;
-    private String abount;
+    private String about;
     private String icon;
     private String name;
     private String card;
@@ -30,10 +30,11 @@ public class RestaurantInfoDO implements Serializable {
 
     public RestaurantInfoDO() {
     }
-    public RestaurantInfoDO(Long id, int registerId, String abount, String icon, String name, String card, String province, String city, String address, String failReason, Date stopTime, Long userId, Date createTime, Date updateTime, int del) {
+
+    public RestaurantInfoDO(Long id, int registerId, String about, String icon, String name, String card, String province, String city, String address, String failReason, Date stopTime, Long userId, Date createTime, Date updateTime, int del) {
         this.id = id;
         this.registerId = registerId;
-        this.abount = abount;
+        this.about = about;
         this.icon = icon;
         this.name = name;
         this.card = card;
@@ -64,12 +65,12 @@ public class RestaurantInfoDO implements Serializable {
         this.registerId = registerId;
     }
 
-    public String getAbount() {
-        return abount;
+    public String getAbout() {
+        return about;
     }
 
-    public void setAbount(String abount) {
-        this.abount = abount;
+    public void setAbout(String about) {
+        this.about = about;
     }
 
     public String getIcon() {
@@ -173,7 +174,7 @@ public class RestaurantInfoDO implements Serializable {
         return "RestaurantInfoDO{" +
                 "id=" + id +
                 ", registerId=" + registerId +
-                ", abount='" + abount + '\'' +
+                ", about='" + about + '\'' +
                 ", icon='" + icon + '\'' +
                 ", name='" + name + '\'' +
                 ", card='" + card + '\'' +

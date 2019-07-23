@@ -7,4 +7,18 @@
         FROM
         manager_info
     </select>
+
+    <select id="selectById" resultType="com.demeter.common.pojo.ManagerInfoDO">
+        SELECT
+        *
+        FROM
+        order_food where id =#{id2}
+    </select>
+
+    <select id="selectById2" resultType="com.demeter.common.pojo.ManagerInfoDO">
+        SELECT
+        *
+        FROM
+        order_food where id =#{testDto.pageNum}
+    </select>
 </mapper>

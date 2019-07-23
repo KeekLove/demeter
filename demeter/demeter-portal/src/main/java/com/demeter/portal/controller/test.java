@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.demeter.common.pojo.ManagerInfoDO;
+import com.demeter.common.pojo.UserInfoDO;
 import com.demeter.common.util.jedis.JedisClient;
 import com.demeter.portal.dao.ManMapper;
+import com.demeter.portal.pojo.testDto;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -71,10 +73,44 @@ public class test {
 
     @RequestMapping("/test3")
     @ResponseBody
-    public JSON GETSHUJU3() {
-        Page<ManagerInfoDO> page = PageHelper.startPage(1, 2);
+    public JSON GETSHUJU3(String name) {
+        Page<ManagerInfoDO> page = PageHelper.startPage(1, 3);
+
         List<ManagerInfoDO> list = managerDao.selectAll();
+
         PageInfo<ManagerInfoDO> infoDOPageInfo = new PageInfo<>(list);
+
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(infoDOPageInfo));
+        return jsonObject;
+    }
+
+    @RequestMapping("/test4")
+    @ResponseBody
+    public JSON GETSHUJU4(String token) {
+        Integer id = Integer.valueOf(jedisClient.hget(token, "id"));
+        Page<ManagerInfoDO> page = PageHelper.startPage(1, 3);
+        List<ManagerInfoDO> list = managerDao.selectById(id);
+        PageInfo<ManagerInfoDO> infoDOPageInfo = new PageInfo<>(list);
+        JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(infoDOPageInfo));
+        return jsonObject;
+    }
+    @RequestMapping("/test5")
+    @ResponseBody
+    public JSON GETSHUJU5(String token,Integer pageNum,Integer pageSize) {
+
+        Integer id = Integer.valueOf(jedisClient.hget(token, "id"));
+
+        testDto testDto = new testDto();
+        testDto.setId(id);
+        testDto.setPageNum(pageNum);
+        testDto.setPageSize(pageSize);
+
+        Page<ManagerInfoDO> page = PageHelper.startPage(testDto.getPageNum(), testDto.getPageSize());
+
+        List<ManagerInfoDO> list = managerDao.selectById2(testDto);
+
+        PageInfo<ManagerInfoDO> infoDOPageInfo = new PageInfo<>(list);
+
         JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(infoDOPageInfo));
         return jsonObject;
     }
