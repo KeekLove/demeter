@@ -1,12 +1,12 @@
 <!doctype html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <title>订单备注信息</title>
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" href="css/order_notes.css">
+<link rel="stylesheet" type="text/css" href="/public/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/order_notes.css">
 </head>
 <body>
 <div class="incomplete_order">
@@ -20,7 +20,7 @@
     </div>
     <ul class="food_list">
     	<li class="food_li">
-        	<img src="images/demo.jpg" class="food_li_left">
+        	<img src="/public/images/demo.jpg" class="food_li_left">
             <div class="food_li_middle">
             	<div>
                     <p>麻婆豆腐</p>
@@ -31,7 +31,7 @@
             </div>
         </li>
         <li class="food_li">
-        	<img src="images/demo.jpg" class="food_li_left">
+        	<img src="/public/images/demo.jpg" class="food_li_left">
             <div class="food_li_middle">
             	<div>
                     <p>麻婆豆腐</p>
@@ -42,7 +42,7 @@
             </div>
         </li>
         <li class="food_li">
-        	<img src="images/demo.jpg" class="food_li_left">
+        	<img src="/public/images/demo.jpg" class="food_li_left">
             <div class="food_li_middle">
             	<div>
                     <p>麻婆豆腐</p>
@@ -87,9 +87,9 @@
 <div class="pay_notice">15分钟内未支付系统将自动取消订单</div>
 <div class="btn">
     <button class="btn1">取消订单</button>
-    <a href="payment.html"><button class="btn2">付款</button></a>
+    <a href="/order/payment"><button class="btn2">付款</button></a>
 </div>
-<script src="js/jquery.min.js"></script>
+<script src="/public/js/jquery.min.js"></script>
 <script>
 $(function(){
 	$(".remark").focus(function(){

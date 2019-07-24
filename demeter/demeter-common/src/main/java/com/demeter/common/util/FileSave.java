@@ -1,5 +1,6 @@
 package com.demeter.common.util;
 
+import com.demeter.common.pojo.RestaurantInfoDO;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

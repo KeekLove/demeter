@@ -26,7 +26,7 @@ public class FoodInfoDO implements Serializable {
     public FoodInfoDO() {
     }
 
-    public FoodInfoDO(Long id, String icon, Float prize, String name, String about, String models, Long menuId, Long restaurantId, Date createTime, Date updateTime, int del) {
+    public FoodInfoDO(Long id, String icon, Float prize, String name, String about, String models, Long menuId, Long restaurantId, Date createTime, Date updateTime, Integer del) {
         this.id = id;
         this.icon = icon;
         this.prize = prize;
@@ -120,11 +120,11 @@ public class FoodInfoDO implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public int getDel() {
+    public Integer getDel() {
         return del;
     }
 
-    public void setDel(int del) {
+    public void setDel(Integer del) {
         this.del = del;
     }
 

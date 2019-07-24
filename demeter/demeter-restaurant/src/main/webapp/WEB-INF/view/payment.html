@@ -1,12 +1,12 @@
 <!doctype html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <title>确认支付</title>
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" href="css/payment.css">
+<link rel="stylesheet" type="text/css" href="/public/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/payment.css">
 </head>
 <body>
 <div class="pay_top">
@@ -26,7 +26,7 @@
     <input type="radio" name="payment" class="payment">
 </div>
 <div class="paydiv">
-    <a href="payment_results.html"><button class="paybtn">确定付款</button></a>
+    <a href="/order/paymentResults"><button class="paybtn">确定付款</button></a>
 </div>
 </body>
 </html>

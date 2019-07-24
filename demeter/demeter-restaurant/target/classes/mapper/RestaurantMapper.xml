@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.restaurant.dao.IRestaurantDao">
+    <select id="findResRestaurantInfo" resultType="com.demeter.common.pojo.RestaurantInfoDO">
+        SELECT
+            `id`,
+            `register_id`,
+            `about`,
+            `icon`,
+            `name`,
+            `card`,
+            `province`,
+            `city`,
+            `address`,
+            `fail_reason`,
+            `stop_time`,
+            `user_id`,
+            `create_time`,
+            `update_time`,
+            `del`
+        FROM restaurant_info
+        WHERE card=#{card}
+    </select>
+
+    <resultMap id="ListFood" type="com.demeter.restaurant.pojo.FoodAndMenuDto">
+        <id property="id" column="menuId" ></id>
+        <result property="name" column="menuName"></result>
+        <collection property="foodInfoDO" column="menuId" javaType="com.demeter.common.pojo.FoodInfoDO">
+            <id property="menuId" column="menu_id"></id>
+            <result property="id" column="id"></result>
+            <result property="icon" column="icon"></result>
+            <result property="prize" column="prize"></result>
+            <result property="name" column="name"></result>
+            <result property="about" column="about"></result>
+            <result property="models" column="models"></result>
+            <result property="restaurantId" column="restaurant_id"></result>
+        </collection>
+    </resultMap>
+
+    <select id="findListFood" resultMap="ListFood">
+        SELECT
+            menu_info.id AS menuId,
+            menu_info.`name` AS menuName,
+            food_info.*
+        FROM
+            menu_info,
+            food_info
+        WHERE
+            menu_info.id = food_info.menu_id
+        AND food_info.del = 1
+        AND food_info.restaurant_id=#{restaurantId}
+    </select>
+</mapper>
