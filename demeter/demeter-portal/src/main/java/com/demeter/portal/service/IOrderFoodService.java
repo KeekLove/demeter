@@ -1,7 +1,16 @@
 package com.demeter.portal.service;
 
-import java.util.List;
+import com.demeter.common.pojo.OrderFoodDO;
+import com.demeter.portal.pojo.OrderFoodDTO;
+import jdk.nashorn.internal.parser.Token;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+/**
+*@Description 查询历史账单
+*@Author 陈龙鑫
+*@DateTime 2019/7/23 2019/7/23
+*/
 public interface IOrderFoodService {
-    List View(String pageNum,String pageSize,Integer id);
+    List<OrderFoodDTO> findOrderFoodDO(String pageSize, String pageNum, String token);
 }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.manager.dao.SuperManagerMapper">
+    <select id="selectAll" resultType="com.demeter.common.pojo.ManagerInfoDO">
+        SELECT
+        *
+        FROM
+        manager_info
+        WHERE
+        del = 1
+    </select>
+    <delete id="deleteById">
+        DELETE FROM manager_info
+        WHERE id = #{id};
+    </delete>
+    <insert id="insert" parameterType="ManagerInfoDO">
+        INSERT INTO manager_info
+        (
+            <include refid="managerColumn"></include>
+        )
+        VALUES
+        (
+            <include refid="managerPOJOValue"></include>
+        )
+    </insert>
+    <update id="update" parameterType="ManagerInfoDO">
+        UPDATE manager_info
+        <set>
+            <if test="password!=null and password!=''">
+                password = #{password},
+            </if>
+            <if test="username!=null and username!=''">
+                username = #{username},
+            </if>
+            <if test="privilege!=null and privilege!=''">
+                privilege = #{privilege},
+            </if>
+            <if test="createTime!=null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime!=null">
+                update_time = #{updateTime},
+            </if>
+            <if test="del!=null and del!=''">
+                del = #{del}
+            </if>
+        </set>
+        WHERE id = #{id};
+    </update>
+
+    <select id="selectOne" resultType="com.demeter.common.pojo.ManagerInfoDO">
+        SELECT *
+        FROM manager_info
+        WHERE del = 1 AND id = #{id}
+    </select>
+
+    <sql id="managerColumn">
+        <trim suffixOverrides=",">
+            <if test="password!=null and password!=''">
+                password,
+            </if>
+            <if test="username!=null and username!=''">
+                username,
+            </if>
+            <if test="privilege!=null and privilege!=''">
+                privilege,
+            </if>
+            <if test="createTime!=null">
+                create_time,
+            </if>
+            <if test="updateTime!=null">
+                update_time,
+            </if>
+            <if test="del!=null and del!=''">
+                del
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="managerPOJOValue">
+        <trim suffixOverrides=",">
+            <if test="password!=null and password!=''">
+                #{password},
+            </if>
+            <if test="username!=null and username!=''">
+                #{username},
+            </if>
+            <if test="privilege!=null and privilege!=''">
+                #{privilege},
+            </if>
+            <if test="createTime!=null">
+                #{createTime},
+            </if>
+            <if test="updateTime!=null">
+                #{updateTime},
+            </if>
+            <if test="del!=null and del!=''">
+                #{del}
+            </if>
+        </trim>
+    </sql>
+
+</mapper>

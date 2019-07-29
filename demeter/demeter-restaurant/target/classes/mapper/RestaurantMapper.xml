@@ -25,14 +25,14 @@
     <resultMap id="ListFood" type="com.demeter.restaurant.pojo.FoodAndMenuDto">
         <id property="id" column="menuId" ></id>
         <result property="name" column="menuName"></result>
-        <collection property="foodInfoDO" column="menuId" javaType="com.demeter.common.pojo.FoodInfoDO">
-            <id property="menuId" column="menu_id"></id>
-            <result property="id" column="id"></result>
+        <collection property="foodInfoDO" column="menuId" ofType="com.demeter.common.pojo.FoodInfoDO" javaType="java.util.ArrayList">
+            <id property="id" column="id"></id>
             <result property="icon" column="icon"></result>
             <result property="prize" column="prize"></result>
             <result property="name" column="name"></result>
             <result property="about" column="about"></result>
             <result property="models" column="models"></result>
+            <result property="menuId" column="menu_id"></result>
             <result property="restaurantId" column="restaurant_id"></result>
         </collection>
     </resultMap>

@@ -1,24 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.demeter.portal.dao.ManMapper">
+<mapper namespace="com.demeter.portal.dao.FoodMapperDao">
     <select id="selectAll" resultType="com.demeter.common.pojo.ManagerInfoDO">
         SELECT
         *
         FROM
-        manager_info
+        manager_info;
     </select>
 
-    <select id="selectById" resultType="com.demeter.common.pojo.ManagerInfoDO">
-        SELECT
-        *
-        FROM
-        order_food where id =#{id2}
-    </select>
+    <!--
+菜品的id   *
+所在餐馆的名字 *
+菜品的名字   *
+菜品的图片   *
+菜品的价格   *
+所属于的目录id    *
+所属于的目录名字    *
+创建时间    *
+    -->
 
-    <select id="selectById2" resultType="com.demeter.common.pojo.ManagerInfoDO">
+
+    <!--查询菜品-->
+    <select id="findFood" resultType="com.demeter.portal.pojo.FindMenuByIdDTO">
         SELECT
-        *
-        FROM
-        order_food where id =#{testDto.pageNum}
+	b.id AS foodid,
+	e.`name` AS resname,
+	a.`name`AS foodname,
+	a.icon AS icon,
+	a.prize AS prize,
+	a.menu_id AS menuid,
+	b.`name` AS menuname,
+	a.create_time AS createtime
+FROM
+	food_info AS a,
+	menu_info AS b,
+	restaurant_info AS e,
+	user_info AS d
+<where>
+    d.id = e.user_id
+    AND a.menu_id = b.id
+    AND b.restaurant_id = e.id
+  <if test="null!=id">
+      AND d.id = #{id}
+  </if>
+  <if test="null!=card">
+      AND e.card = #{card}
+  </if>
+   <if test="null!=menuId">
+       AND b.id = #{menuId}
+   </if>
+    AND a.del = 1
+</where>
+
     </select>
+    <!--添加菜品-->
+    <insert id="insertMenu" >
+        INSERT INTO food_info (
+	`icon`,
+	`prize`,
+	`name`,
+	`about`,
+	`menu_id`,
+	`restaurant_id`
+)
+VALUES
+	(
+		#{icon},
+		#{prize},
+		#{name},
+		#{about},
+		#{menuId},
+	   #{restaurantId}
+	);
+    </insert>
+
+
+    <!--根据card找个人用户下的所有的餐馆-->
+    <select id="findMenu" resultType="com.demeter.portal.pojo.SelectMenuDTO">
+SELECT DISTINCT
+	a.menu_id,
+	a.`name`
+FROM
+	food_info a
+LEFT JOIN restaurant_info b ON a.restaurant_id = b.id
+WHERE
+	b.card = #{card}
+    </select>
+    <!--根据menuId删除菜单-->
+    <update id="delMenu">
+
+        UPDATE `demeter`.`food_info`
+SET
+ `del` = 0
+WHERE
+	menu_id=#{menuId}
+    </update>
+
+    <!--测试查询所有的菜单信息-->
+    <select id="findAll" resultType="com.demeter.common.pojo.FoodInfoDO">
+        select  * from food_info
+    </select>
+    <!--根据id修改菜单信息-->
+    <update id="updateById">
+     UPDATE `demeter`.`food_info`
+			SET
+			`icon` =#{icon},
+			`prize` =#{prize},
+			`name` = #{name},
+			`about` =#{about},
+			`menu_id` = #{menuId},
+			`update_time` = now(),
+			`del` = 1
+		WHERE
+			(`id` =#{id});
+    </update>
 </mapper>

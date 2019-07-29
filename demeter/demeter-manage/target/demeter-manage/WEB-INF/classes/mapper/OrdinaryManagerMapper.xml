@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.manager.dao.OrdinaryManagerMapper">
+    <select id="selectAllOrderUsers" resultType="OrderUserDO">
+        SELECT * FROM order_user WHERE del = 1
+    </select>
+    <select id="selectOneOrderUser" resultType="OrderUserDO">
+        SELECT * FROM order_user WHERE del = 1 AND id = #{id}
+    </select>
+    <update id="updateOrderUser" parameterType="OrderUserDO">
+        UPDATE order_user
+        <set>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="restaurantId != null">
+                restaurant_id = #{restaurantId},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="packageId != null">
+                package_id = #{packageId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="del != null">
+                del = #{del}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectAllUsers" resultType="UserInfoDO">
+        SELECT * from user_info where del = 1
+    </select>
+    <select id="selectOneOrderUserByUserId" resultType="OrderUserDO">
+        SELECT * FROM order_user WHERE del = 1 AND user_id = #{userId}
+    </select>
+    <select id="selectRestaurantById" resultType="RestaurantInfoDO">
+        select * from restaurant_info where del = 1 and id = #{id}
+    </select>
+    <select id="selectPackageById" resultType="PackageTypeDO">
+        select * from restaurant_info where del = 1 and id = #{id}
+    </select>
+    <select id="selectUserInfoByUserID" resultType="UserInfoDO">
+        select * from user_info where del = 1 and id = #{id}
+    </select>
+
+    <select id="restActivation" resultMap="resultRestaurantList">
+        SELECT a.id as user_ID,a.phone,b.* FROM demeter.user_info as a left join restaurant_info as b on b.user_id = a.id where b.del = 1
+    </select>
+
+    <!--审核餐厅，赋予授权码-->
+    <!--审核餐厅，冻结授权码-->
+    <!--审核餐厅，修改授权截至日期-->
+    <update id="reviewRes" parameterType="RestaurantInfoDO">
+        UPDATE `demeter`.`restaurant_info`
+        <set>
+            <if test="card != null">
+                `card` = #{card},
+            </if>
+            <if test="card == 'null'">
+                `card` = null,
+            </if>
+            <if test="failReason != null">
+                `fail_reason` = #{failReason},
+            </if>
+            <if test="stopTime != null">
+                `stop_time` = #{stopTime},
+            </if>
+            `update_time` = CURRENT_TIMESTAMP,
+            `del` = #{del}
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <!--查询订单信息-->
+    <select id="selectPackage" resultType="packageList">
+        SELECT
+	b.id,
+    a.phone,
+    c.prize,
+    c.avtice_num,
+    b.order_id,
+    b.create_time,
+    b.update_time,
+    d.id as restaurantId,
+    d.name as restaurantName
+FROM
+    demeter.user_info AS a
+        LEFT JOIN
+    order_user AS b ON a.id = b.user_id
+        LEFT JOIN
+    package_type AS c ON c.id = b.package_id
+		left join
+	restaurant_info as d on d.id = b.restaurant_id
+WHERE
+    b.del = 1
+    </select>
+    <!--查询餐厅列表-->
+    <select id="selectResList" resultMap="resultRestaurantList">
+        SELECT a.phone,b.* FROM demeter.user_info as a left join restaurant_info as b on b.user_id = a.id where b.del = 1 and a.del = 1
+    </select>
+    <resultMap id="resultRestaurantList" type="RestaurantList">
+        <id property="id" column="id"/>
+        <result property="registerId" column="register_id"/>
+        <result property="about" column="about"/>
+        <result property="icon" column="icon"/>
+        <result property="name" column="name"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="address" column="address"/>
+        <result property="failReason" column="fail_reason"/>
+        <result property="stopTime" column="stop_time"/>
+        <result property="userId" column="user_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+    <!--根据手机号查询管理员-->
+    <select id="selectUser" resultType="com.demeter.manager.pojo.User">
+        select username,password,privilege from manager_info where del = 1 and username = #{username}
+    </select>
+
+</mapper>

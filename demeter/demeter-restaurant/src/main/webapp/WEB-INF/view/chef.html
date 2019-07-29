@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>Title</title>
+    <script src="/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://github.com/davidshimjs/qrcodejs"></script>
+    <style type="text/css">
+        body{
+            margin: 0 0;
+            padding: 0 0;
+        }
+        #head{
+            width: 100%;
+            height: 80px;
+            background-color: #0bb20c;
+        }
+        #icon{
+            margin-top: 10px;margin-left: 10px;border-color: #3a4651;
+            border-style: solid;
+            border-radius: 50px;
+        }
+        #head p{
+            font-size: 20px;
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            color: white;
+        }
+        #head input{
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            top: 20px;
+            right: 100px;
+        }
+
+
+        .food{
+            width: 100%;
+            height: 40px;
+            background-color: #5ace6e;
+            border-style: solid;
+            border-color: #0bb20c;
+            color: white;
+            font-size:20px ;
+            float: left;
+        }
+        #left{
+            width: 20%;
+            height: 800px;
+            background-color: #3a4651;
+            float: left;
+            height:100%;
+        }
+        #body{
+            width: 80%;
+            height: 800px;
+            float: left;
+
+
+        }
+        #ritht{
+            width: 20%;
+            height: 800px;
+            background-color: #3a4651;
+            float: left;
+            height:100%;
+        }
+        #context{
+            width: 100%;
+            height: 800px;
+            background-color: #ce3c39;
+        }
+        .title{
+            width: 100%;
+            height: 30px;
+            background-color: #50a3a2;
+            text-align: center;
+        }
+        .rithtContext{
+            width: 90%;
+            background-color: #0bb20c;
+            height: 40px;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .menu{
+            width: 100%;
+            min-height: 80px;
+            height: auto;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <p th:text="${name}"></p>
+        <img id="icon" src="http://25b8c82775.wicp.vip:56889/public/images/img/banner.png" width="60px" height="60px" style="">
+        <a th:href="@{'/cook/lobby?card='+${card}}">
+            <input type="button" value="返回大厅" style="background-color: #50a3a2;color: white"></input></a>
+    </div>
+    <div id="context">
+<!--        <div id="left">-->
+<!--           <div class="title" id="title1">待完成订单</div>-->
+<!--            <div class="rithtContext">43423423</div>-->
+<!--        </div>-->
+        <div id="body">
+            <div class="title" id="tit2" style="background-color: #ffaa3c">订单详情</div>
+<!--            <div class="menu">-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food" style="background-color: #10aeff;cursor: pointer">-->
+<!--                    已完成-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="menu">-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food">-->
+<!--                    辣椒炒肉-->
+<!--                </div>-->
+<!--                <div class="food" style="background-color: #10aeff;cursor: pointer">
+=
+-->
+        </div>
+        <div id="ritht">
+            <div id="tit3" class="title">需要服务的座位号</div>
+            <div id="seat" style="font-size: 100px" >无</div>
+        </div>
+    </div>
+    <div type="hidden" style="display:none;"  id="card" th:text="${card}"></div>
+    <div type="hidden" style="display:none;"  id="waitNum" th:text="${waitNum}"></div>
+<!--不断的查询是否有新的订单-->
+
+<script type="text/javascript">
+    var waitNum=0;
+    function del(id){
+        $.post("/cook/success",{id:id,card:$("#card").text()},function(result){
+            $.post("/cook/dispose",{card:$("#card").text(),waitNum:waitNum},function(result){
+                waitNum=0;
+            })
+        });
+    }
+    $(function () {
+
+            timer=setInterval(function(){
+
+            $.post("/cook/dispose",{card:$("#card").text(),waitNum:waitNum},function(result){
+                    var  arr =JSON.parse(result)
+                    if (arr.length==0){
+                        return
+                    }
+                    $("#tit2").empty();
+
+                    // $("#title1").append("<div class=\"rithtContext\">434653423</div>");
+                    var length=arr.length;
+                    var str="";
+                    for (var i=0;i<length;i++) {
+                        str+="<div class=\"menu\">";
+                        var food=JSON.parse(arr[i]["foodContext"])
+                        for (var j=0;j<food.length;j++) {
+                            console.log(food[j]["foodName"]);
+                            str+=" <div class=\"food\">";
+                            str+=food[j]["foodName"]+" X"+food[j]["num"]+"--口味："+food[j]["type"]
+                            str+="</div>";
+                        }
+                        str+="<div class=\"food\">";
+                        str+="备注："+arr[i]["remark"];
+                        str+="</div>";
+                        str+="<a id='del' onclick='del("+arr[i]["id"]+")' class='food' ><div class=\"food\"  style=\"background-color: #10aeff;cursor: pointer\">\n" +
+                            "完成\n" +"桌号："+arr[i]["seatNum"]+
+                            "</div></a>"
+                        str+="</div>";
+                    }
+                    $("#tit2").append(str);
+                    waitNum=length;
+                    console.log(arr)
+                });
+
+        },2000);
+
+        timer2=setInterval(function(){
+            console.log("fdfdfd")
+            $.post("/cook/service",{card:$("#card").text()},function(result){
+
+                var  tr =JSON.parse(result)
+                console.log(tr["seat"])
+                if (tr["seat"]==null){
+                    $("#tit3").empty();
+                    return
+                }
+                console.log(tr["seat"])
+                $("#seat").html(tr["seat"])
+            });
+        },2000);
+
+
+    });
+</script>
+</body>
+</html>

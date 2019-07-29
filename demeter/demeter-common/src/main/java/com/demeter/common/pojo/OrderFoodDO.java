@@ -12,7 +12,8 @@ import java.sql.Date;
 */
 public class OrderFoodDO implements Serializable {
     private Long id;
-    private Long orderId;
+    private String orderId;
+    private Double prize;
     private int seatNum;
     private Long restaurantId;
     private String foodContext;
@@ -25,9 +26,10 @@ public class OrderFoodDO implements Serializable {
     public OrderFoodDO() {
     }
 
-    public OrderFoodDO(Long id, Long orderId, int seatNum, Long restaurantId, String foodContext, String remark, int state, Date createTime, Date updateTime, int del) {
+    public OrderFoodDO(Long id, String orderId, Double prize, int seatNum, Long restaurantId, String foodContext, String remark, int state, Date createTime, Date updateTime, int del) {
         this.id = id;
         this.orderId = orderId;
+        this.prize = prize;
         this.seatNum = seatNum;
         this.restaurantId = restaurantId;
         this.foodContext = foodContext;
@@ -38,6 +40,14 @@ public class OrderFoodDO implements Serializable {
         this.del = del;
     }
 
+    public Double getPrize() {
+        return prize;
+    }
+
+    public void setPrize(Double prize) {
+        this.prize = prize;
+    }
+
     public Long getId() {
         return id;
     }
@@ -46,11 +56,11 @@ public class OrderFoodDO implements Serializable {
         this.id = id;
     }
 
-    public Long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -122,7 +132,8 @@ public class OrderFoodDO implements Serializable {
     public String toString() {
         return "OrderFoodDO{" +
                 "id=" + id +
-                ", orderId=" + orderId +
+                ", orderId='" + orderId + '\'' +
+                ", prize=" + prize +
                 ", seatNum=" + seatNum +
                 ", restaurantId=" + restaurantId +
                 ", foodContext='" + foodContext + '\'' +

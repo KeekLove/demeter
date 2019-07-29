@@ -12,26 +12,36 @@ import java.sql.Date;
 */
 public class OrderUserDO implements Serializable {
     private Long id;
-    private Long orderId;
+    private String orderId;
     private Long restaurantId;
     private Long userId;
     private Long packageId;
-
+    private Double prize;
     private Date createTime;
     private Date updateTime;
     private int del;
 
     public OrderUserDO() {
     }
-    public OrderUserDO(Long id, Long orderId, Long restaurantId, Long userId, Long packageId, Date createTime, Date updateTime, int del) {
+
+    public OrderUserDO(Long id, String orderId, Long restaurantId, Long userId, Long packageId, Double prize, Date createTime, Date updateTime, int del) {
         this.id = id;
         this.orderId = orderId;
         this.restaurantId = restaurantId;
         this.userId = userId;
         this.packageId = packageId;
+        this.prize = prize;
         this.createTime = createTime;
         this.updateTime = updateTime;
         this.del = del;
+    }
+
+    public Double getPrize() {
+        return prize;
+    }
+
+    public void setPrize(Double prize) {
+        this.prize = prize;
     }
 
     public Long getId() {
@@ -42,11 +52,11 @@ public class OrderUserDO implements Serializable {
         this.id = id;
     }
 
-    public Long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -102,10 +112,11 @@ public class OrderUserDO implements Serializable {
     public String toString() {
         return "OrderUserDO{" +
                 "id=" + id +
-                ", orderId=" + orderId +
+                ", orderId='" + orderId + '\'' +
                 ", restaurantId=" + restaurantId +
                 ", userId=" + userId +
                 ", packageId=" + packageId +
+                ", prize=" + prize +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", del=" + del +

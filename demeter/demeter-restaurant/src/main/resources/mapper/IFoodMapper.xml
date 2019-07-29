@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.restaurant.dao.IFoodDao">
+    <select id="findOrderFoodMaxId" resultType="java.lang.Long">
+        SELECT
+            id
+        FROM
+            order_food
+        ORDER BY
+            id DESC
+        LIMIT 1;
+    </select>
+
+    <insert id="addOrder" >
+        INSERT INTO `demeter`.`order_food` (
+        `id`,
+        `seat_num`,
+        `restaurant_id`,
+        `food_context`,
+        `remark`,
+        `state`,
+        `create_time`,
+        `update_time`,
+        `del`,
+        `prize`
+        )
+        VALUES
+            (
+            #{id},
+            #{seat_num},
+            (SELECT id FROM restaurant_info WHERE restaurant_info.card=#{card} LIMIT 1),
+            #{food_context},
+            #{remark},
+            '0',
+            NOW(),
+            NOW(),
+            '1',
+             #{prize}
+        );
+    </insert>
+
+    <update id="updateOrderStatus" >
+        update  order_food SET `state`=#{status} where id =#{id}
+    </update>
+
+    <update id="updateTrade_no">
+        update  order_food SET `order_id`=#{order_id} where id =#{id}
+    </update>
+
+    <select id="getRestaurantInfoByOrderId" resultType="com.demeter.common.pojo.RestaurantInfoDO">
+        SELECT restaurant_info.*
+        FROM restaurant_info ,order_food
+        WHERE
+        order_food.id=#{id}
+        AND
+        restaurant_info.id=order_food.restaurant_id
+    </select>
+
+    <select id="getListOrder" resultType="com.demeter.common.pojo.OrderFoodDO">
+       SELECT
+            *
+        FROM
+            order_food
+        WHERE
+            restaurant_id = #{restaurantId}
+        AND state = 1
+        AND del = 1
+    </select>
+</mapper>

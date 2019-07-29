@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.portal.dao.RestaurantRegisterDao">
+    <insert id="register" parameterType="com.demeter.portal.pojo.RestaurantRegisterDTO">
+        INSERT INTO `restaurant_info` (
+	`register_id`,
+	`about`,
+	`icon`,
+	`name`,
+	`province`,
+	`city`,
+	`address`,
+	`user_id`,
+	`del`
+)
+VALUES
+	(
+		#{registerId},
+		#{about},
+		#{icon},
+		#{name},
+		#{province},
+		#{city},
+		#{address},
+		#{userId},
+		#{del}
+	)
+    </insert>
+	<select id="findById" resultType="com.demeter.common.pojo.RestaurantInfoDO">
+		SELECT
+		`id`,
+		`register_id`,
+		`about`,
+		`icon`,
+		`name`,
+		`province`,
+		`city`,
+		`address`,
+		`user_id`,
+		`del`
+		FROM
+		restaurant_info
+		WHERE
+		id = #{id}
+	</select>
+	<update id="update">
+		UPDATE `restaurant_info`
+		<set>
+			<if test="0!=registerId">
+				`register_id`=#{registerId},
+			</if>
+			<if test="null!=about">
+				`about`=#{about},
+			</if>
+			<if test="null!=icon">
+				`icon`=#{icon},
+			</if>
+			<if test="null!=name">
+				`name`=#{name},
+			</if>
+			<if test="null!=province">
+				`province`=#{province},
+			</if>
+			<if test="null!=city">
+				`city`=#{city},
+			</if>
+			<if test="null!=address">
+				`address`=#{address},
+			</if>
+			`update_time`=now()
+		</set>
+			WHERE
+		`id`=#{id}
+	</update>
+</mapper>

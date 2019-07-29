@@ -12,7 +12,7 @@ import java.sql.Date;
 */
 public class UserInfoDO implements Serializable {
     private Long id;
-    private int phone;
+    private String phone;
     private String password;
     private Date createTime;
     private Date updateTime;
@@ -21,7 +21,7 @@ public class UserInfoDO implements Serializable {
     public UserInfoDO() {
     }
 
-    public UserInfoDO(Long id, int phone, String password, Date createTime, Date updateTime, int del) {
+    public UserInfoDO(Long id, String phone, String password, Date createTime, Date updateTime, int del) {
         this.id = id;
         this.phone = phone;
         this.password = password;
@@ -38,11 +38,11 @@ public class UserInfoDO implements Serializable {
         this.id = id;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

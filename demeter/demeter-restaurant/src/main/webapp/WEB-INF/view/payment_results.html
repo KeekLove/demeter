@@ -11,26 +11,26 @@
 <body>
 <div class="incomplete_order">
 	<p>支付成功</p>
-    <p>60.40</p>
-    <a href="/order/successful">查看详情</a>
+    <p th:text="${total_amount}">加载中</p>
+<!--    <a href="/order/successful">查看详情</a>-->
 </div>
 <div class="main_info">
     <div class="hang">
     	<span>门店名称</span>
-        <span>味千拉面（上海长寿路二分店）</span>
+        <span th:text="${name}"></span>
     </div>
     <div class="hang">
     	<span>交易时间</span>
-        <span>2018-09-01 12:45:23</span>
+        <span th:text="${time}">加载中</span>
     </div>
     <div class="hang">
     	<span>交易订单</span>
-        <span>34324325675987076635</span>
+        <span th:text="${trade_no}">记载中</span>
     </div>
 </div>
-<div class="invoice">
-	<span>点一点，马上开发票</span>
-    <span>开发票</span>
-</div>
+<!--<div class="invoice">-->
+<!--	<span>点一点，马上开发票</span>-->
+<!--    <span>开发票</span>-->
+<!--</div>-->
 </body>
 </html>

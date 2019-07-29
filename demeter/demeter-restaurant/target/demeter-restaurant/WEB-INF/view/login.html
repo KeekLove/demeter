@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>餐馆登录</title>
+	<link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+</head>
+<body>
+<div class="htmleaf-container">
+	<div class="wrapper">
+		<div class="container">
+			<h1>云智慧自助点餐</h1>
+			
+			<form action="/cook/checkLogin" class="form" method="post">
+				<input type="text" id="phone" name="phone" placeholder="用户名">
+				<input type="text" id="card" name="card" placeholder="授权码">
+				<button type="submit" id="login-button">开业</button>
+			</form>
+		</div>
+		
+		<ul class="bg-bubbles">
+			<li>智慧</li>
+			<li>快速</li>
+			<li>餐馆</li>
+			<li>服务</li>
+			<li>品质</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</div>
+
+<script src="/public/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$('#login-button').click(function (event) {
+	event.preventDefault();
+	$('form').fadeOut(500);
+	$('.wrapper').addClass('form-success');
+	$.post("/cook/checkLogin",{phone:$('#phone').val(),card:$("#card").val()},function(result){
+		if (result==200){
+			window.location.href = "/cook/lobby?card="+$("#card").val();
+		}
+
+		console.log("大师")
+	});
+});
+</script>
+
+</body>
+</html>

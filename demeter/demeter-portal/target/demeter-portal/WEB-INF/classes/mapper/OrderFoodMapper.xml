@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.portal.dao.OrderFoodDao">
+    <select id="findOrderFoodDO" resultType="com.demeter.portal.pojo.OrderFoodDTO">
+        SELECT
+        order_food.id,
+        restaurant_info.`name`,
+        order_food.seat_num,
+        order_food.order_id,
+        order_food.create_time,
+        order_food.food_context,
+				order_food.prize
+        FROM order_food ,user_info,restaurant_info
+        WHERE
+        order_food.restaurant_id = restaurant_info.id
+        AND
+        restaurant_info.user_id = user_info.id
+        And
+        order_food.del=1
+        AND
+        order_food.state=0
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.restaurant.dao.IUserDao">
+    <select id="getStopDateByPhoneAndCard" resultType="java.sql.Date">
+        SELECT
+         restaurant_info.stop_time
+        From user_info,restaurant_info
+        WHERE user_info.phone=#{phone}
+        AND restaurant_info.user_id=user_info.id
+        AND restaurant_info.card=#{card}
+        AND restaurant_info.del=1;
+    </select>
+</mapper>

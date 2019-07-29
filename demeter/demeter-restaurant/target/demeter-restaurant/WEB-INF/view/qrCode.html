@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <script src="/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://github.com/davidshimjs/qrcodejs"></script>
+    <style type="text/css">
+        body{
+            margin: 0 0;
+            padding: 0 0;
+        }
+        #head{
+            width: 100%;
+            height: 80px;
+            background-color: #0bb20c;
+        }
+        #icon{
+            margin-top: 10px;margin-left: 10px;border-color: #3a4651;
+            border-style: solid;
+            border-radius: 50px;
+        }
+        #head p{
+            font-size: 20px;
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            color: white;
+        }
+        #head input{
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            top: 20px;
+            right: 100px;
+        }
+        #eq{
+            border-style: solid;
+            border-color: #10d249;
+        }
+        #body{
+            width: 100%;
+            height: 500px;text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+
+        }
+    </style>
+</head>
+<body>
+<div id="head">
+    <p th:text="${name}">fdsfd</p>
+    <img id="icon" src="http://25b8c82775.wicp.vip:56889/public/images/img/banner.png" width="60px" height="60px" style="">
+    <a th:href="@{'/cook/lobby?card='+${card}}"><input type="button" value="返回大厅" style="background-color: #50a3a2;color: white"></input></a>
+</div>
+<div id="body">
+    <ul style="list-style: none">
+        <li> 桌号：<input id="in" type="text"><input id="start" type="button" value="生成二维码"></li>
+        <li class="eq">
+<!--            <img id="eq" src="http://qr.liantu.com/api.php?text='http://25b8c82775.wicp.vip:56889/order/?seatNum=32&card=ShouQuanMa'">-->
+        </li>
+    </ul>
+    </div>
+<div type="hidden" style="display:none;"  id="card" th:text="${card}"></div>
+</div>
+<script type="text/javascript">
+    $("#start").click(function () {
+        $(".eq").empty()
+        var text="http://"+window.location.host+"/order/?seatNum="+$("#in").val()+"%26card="+$("#card").text();
+        var str="<img id=\"eq\" src=\"http://qr.liantu.com/api.php?text="+text+"\">"
+        console.log(str)
+        $(".eq").append(str)
+    })
+</script>
+</body>
+</html>

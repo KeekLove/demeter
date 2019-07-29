@@ -1,0 +1,1695 @@
+/*==================================
+* Author        : With Html
+* Template Name : Eatery | Fast Food & Restaurant HTML template
+* Version       : 1.0
+==================================== */
+
+
+
+
+/*=========== TABLE OF CONTENTS ===========
+1. Google Fonts
+2. Global Settings
+3. Header Section
+4. Nav Section
+5. Intro Section
+6. Food Menu Section
+7. Today Special Section
+8. Staff Member Section
+9. Recent Update Section
+10. Food Gallery Section
+11. Testimonials Section
+12. Contact Form Section
+13. Google Map Section
+14. Footer Section
+15. About us page
+16. Service Page
+17. Team Page
+18. Blog Page
+19. Gallery Page
+20. Reservation Page
+21. Testimonial Page
+22. Contact Page
+23. 404error Page
+24. Scroll Top Section
+25. Page Loader
+===========*/
+
+
+
+
+
+/*===============================
+	1. Google Fonts
+===============================*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Capriola');
+@import url('https://fonts.googleapis.com/css?family=Francois+One');
+
+
+
+
+/*===============================
+	2. Global Settings
+===============================*/
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body, html {
+	height: 100%;
+	background: #fff;
+	color: #2C3038;
+	font-family: 'Roboto', sans-serif;
+	font-weight:300;
+}
+span.underline {
+	border: 2px solid #DC3522;
+	border-radius: 50%;
+	display: inline-block;
+	height: 16px;
+	position: relative;
+	width: 16px;
+	z-index: 1;
+	margin-bottom: 0px;
+}
+span.full-underline:before, span.full-underline:after {
+	background: #F4BFB9;
+	content: "";
+	height: 1px;
+	position: absolute;
+	top: 5px;
+	width: 100px;
+	z-index: -1;
+}
+span.right-underline:before {
+	background: #F4BFB9;
+	content: "";
+	height: 1px;
+	position: absolute;
+	top: 5px;
+	width: 100px;
+	z-index: -1;
+}
+span.left-underline:after {
+	background: #F4BFB9;
+	content: "";
+	height: 1px;
+	position: absolute;
+	top: 5px;
+	width: 100px;
+	z-index: -1;
+}
+span.underline::before {
+	left: 14px;
+}
+span.underline::after {
+	right: 14px;
+}
+[class^="flaticon-"]::before, [class*=" flaticon-"]::before, [class^="flaticon-"]::after, [class*=" flaticon-"]::after {
+	margin: 0;
+}
+.title-white span.underline {
+	border: 2px solid #fff;
+	border-radius: 50%;
+}
+p {
+	font-size: 20px;
+	line-height: 35px;
+}
+a:hover, a:focus {
+	text-decoration: none;
+	outline: 0;
+	border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #000;
+	font-weight:300;
+}
+.title {
+	padding-bottom: 30px;
+	color: #fff;
+}
+.title p {
+	color: #361507;
+	margin: 0;
+	font-size: 17px;
+	text-transform: uppercase;
+}
+.title p .fa {
+	font-size: 14px;
+}
+.title h2 {
+	font-size: 45px;
+	font-family: 'Francois One', sans-serif;
+	color: #DC3522;
+	line-height: 55px;
+	text-transform: uppercase !important;
+	margin-top: 0px;
+}
+h1.title span {
+	display: block;
+	width: 100%;
+	color: #555;
+	letter-spacing: 1px;
+	font-size: 18px;
+	font-weight: 400;
+}
+.title-white h2, .title-white p {
+	color: #fff;
+}
+.readmore {
+	animation-delay: 2s;
+	background: #dc3522;
+	border: 1px solid #dc3522;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 10px;
+	margin-top: 25px;
+	padding: 17px 26px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background 0.3s ease-in-out 0s, color 0.3s ease-in-out 0s;
+	white-space: nowrap;
+}
+.readmore:hover, .readmore:active {
+	color: #dc3522;
+	background: none;
+	border: 1px solid #dc3522;
+}
+.submit {
+	animation-delay: 2s;
+	background: #FF7701;
+	border: 1px solid #FF7701;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 10px;
+	margin-top: 25px;
+	padding: 17px 46px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background 0.3s ease-in-out 0s, color 0.3s ease-in-out 0s;
+	white-space: nowrap;
+}
+.submit:hover {
+	color: #FF7701;
+	background: none;
+	border: 1px solid #FF7701;
+}
+
+
+/*===============================
+	3. Header Section
+===============================*/
+
+/*Top Header Section*/
+.upper-header {
+	border-bottom: 1px dotted #361507;
+}
+.upper-header p {
+	margin: 0;
+	padding: 5px 0;
+	color: #F4CCCF;
+	font-size: 15px;
+	text-transform: uppercase
+}
+.social-link ul {
+	text-align: right;
+	padding-top: 15px;
+	margin: 0;
+}
+.social-link ul li {
+	display: inline;
+	list-style: none;
+	padding: 0 10px;
+}
+.social-link ul li a .fa {
+	color: #F4CCCF;
+	font-size: 15px;
+	font-weight: 300;
+}
+/*Bottom Header Section*/
+
+.logo-holder {
+	margin: 25px 0;
+}
+.logo-holder img {
+	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+}
+.main-header {
+	position: absolute;
+	right: 0;
+	left: 0;
+	z-index: 1030
+}
+/*Second Header Style*/
+
+
+#header-holder-2 .main-header {
+	position: static;
+}
+#header-holder-2 .upper-header {
+	border-bottom: 1px solid #eee;
+}
+#header-holder-2 .upper-header p {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	font-size: 15px;
+	text-transform: none
+}
+#header-holder-2 .social-link ul {
+	text-align: right;
+	padding-top: 9px;
+	margin: 0;
+}
+#header-holder-2 .social-link ul li {
+	display: inline;
+	list-style: none;
+	padding: 0 10px;
+}
+#header-holder-2 .social-link ul li a .fa {
+	color: #555;
+	font-size: 15px;
+	font-weight: 300;
+}
+#header-holder-2 .header-info {
+	margin-top: 18px;
+}
+#header-holder-2 .icon-box {
+	display: table-cell;
+	vertical-align: middle;
+}
+#header-holder-2 .icon-box .fa {
+	border: 1px solid #e1e1e1;
+	border-radius: 50%;
+	height: 50px;
+	line-height: 50px;
+	margin-right: 15px;
+	text-align: center;
+	width: 50px;
+	font-size: 20px;
+	color: #DC3522;
+}
+#header-holder-2 .header-content {
+	display: table-cell;
+	vertical-align: middle;
+}
+#header-holder-2 .header-content h3 {
+	color: #DC3522;
+	font-size: 18px;
+	margin: 15px 0 0px 0;
+	text-transform: uppercase;
+}
+#header-holder-2 .header-content p a {
+	color: #555;
+	font-size: 16px;
+}
+#header-holder-2 .custom-menu {
+	background: #DC3522;
+	margin: 0;
+}
+#header-holder-2 .cssmenu > ul > li {
+	border-right: 1px solid #D03220;
+}
+#header-holder-2 .cssmenu ul li {
+	padding: 8px 0px;
+}
+#header-holder-2 .cssmenu ul li a {
+	font-size: 16px;
+	padding: 8px 25px;
+	text-transform: uppercase;
+}
+#header-holder-2 .cssmenu ul ul {
+	top: 57px!important;
+}
+
+
+/*===============================
+   4. Nav Section
+===============================*/
+
+
+.custom-menu {
+	margin-top: 25px;
+	transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+}
+.cssmenu {
+	position: relative;
+	text-align: left;
+}
+.cssmenu > ul {
+	position: relative;
+	display: block;
+	background: none;
+	width: 100%;
+	z-index: 500;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1
+}
+.cssmenu:after, .cssmenu > ul:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0
+}
+.cssmenu > ul > li {
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	padding: 10px 0;
+}
+.cssmenu > ul > #menu-button {
+	display: none
+}
+.cssmenu ul li a {
+	font-size: 17px;
+	padding: 10px 18px;
+	color: #fff;
+	display: block;
+	line-height: 25px;
+	font-family: 'Roboto', sans-serif;
+}
+.cssmenu > ul > li > a:hover {
+	color: #fff
+}
+.cssmenu > ul > li.has-sub > a {
+	padding-right: 32px
+}
+.cssmenu > ul > li:hover > a {
+	color: #eee
+}
+.cssmenu li.has-sub::after {
+	display: block;
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0
+}
+.cssmenu > ul > li.has-sub::after {
+	right: 10px;
+	top: 20px;
+	border: 5px solid transparent;
+	border-top-color: #e8d2bd
+}
+.cssmenu > ul > li:hover::after {
+	border-top-color: #fff
+}
+.cssmenu ul ul {
+	position: absolute;
+	left: -9999px;
+	top: 60px!important;
+	opacity: 0;
+	z-index: 1000;
+	background: #fff;
+	padding: 5px;
+	border-bottom: 2px solid #DC3522;
+}
+.cssmenu ul ul ul {
+	top: -1px !important;
+	padding: 0 0 0 5px
+}
+.cssmenu ul ul li {
+	position: relative;
+	list-style: none;
+}
+.cssmenu > ul > li:hover > ul {
+	left: auto;
+	top: 44px;
+	opacity: 1
+}
+.cssmenu.align-right > ul > li:hover > ul {
+	left: auto;
+	right: 0;
+	opacity: 1
+}
+.cssmenu ul ul li:hover > ul {
+	left: 170px;
+	top: 0;
+	opacity: 1;
+	text-align: left !important;
+}
+.cssmenu.align-right ul ul li:hover > ul {
+	left: auto;
+	right: 170px;
+	top: 0;
+	opacity: 1;
+	padding-right: 5px;
+}
+.cssmenu ul ul li a {
+	width: 200px;
+	font-size: 15px;
+	line-height: 25px;
+	color: #D32407;
+}
+.cssmenu.align-right ul ul li a {
+	text-align: right
+}
+.cssmenu ul ul li:hover > a {
+	color: #333
+}
+.cssmenu ul ul li:last-child > a, .cssmenu ul ul li.last > a {
+	border-bottom: 0
+}
+.cssmenu > ul > li > ul::after {
+	border-top: 3px solid #fff
+}
+.cssmenu.align-right > ul > li > ul::after {
+	left: auto;
+	right: 30px
+}
+.cssmenu ul ul li.has-sub::after {
+	border: 4px solid transparent;
+	border-left-color: #9ea2a5;
+	right: 10px;
+	top: 12px;
+	-moz-transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+	-webkit-transition: -webkit-transform .2s ease, right .2s ease
+}
+.cssmenu.align-right ul ul li.has-sub::after {
+	border-left-color: transparent;
+	border-right-color: #9ea2a5;
+	right: auto;
+	left: 10px
+}
+.cssmenu ul ul li.has-sub:hover::after {
+	border-left-color: #fff;
+	right: -5px;
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg)
+}
+.cssmenu.align-right ul ul li.has-sub:hover::after {
+	border-right-color: #fff;
+	border-left-color: transparent;
+	left: -5px;
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg)
+}
+
+
+/*===============================
+	5. Intro Section
+===============================*/
+
+
+.introduction {
+	padding: 100px 0;
+	text-align: left;
+}
+.introduction h2 {
+	color: #DC3522;
+	font-size: 45px;
+	line-height: 55px;
+	text-transform: none;
+}
+.intro-img {
+	overflow: hidden;
+	margin-top: 30px;
+}
+.intro-img img {
+	-webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;
+}
+.intro-img img:hover {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+
+/*===============================
+	6. Food Menu Section
+===============================*/
+
+
+.menu-controls ul li {
+	list-style: none;
+	display: inline-block;
+	cursor: pointer;
+	margin: 0 2px;
+	padding: 0;
+}
+.tabs li a {
+	color: #352923;
+	display: block;
+	font-weight: 400;
+	padding: 12px 30px;
+	font-size: 18px;
+	border: 1px dashed #ccc;
+	background: #fff;
+}
+.tabs li a:hover {
+	color: #DC3522;
+}
+.menu-controls li.active {
+	color: #DC3522;
+}
+.food-menu {
+	background: rgba(0, 0, 0, 0) url("../images/background.jpg") repeat scroll 0 0;
+	border-bottom: 1px solid #ebe6d8;
+	border-top: 1px solid #ebe6d8;
+	padding: 90px 0;
+	background-attachment: fixed;
+	text-align: center;
+}
+.food-menu .row {
+	margin-top: 35px;
+}
+.tabs {
+	border: 0;
+	overflow: hidden;
+	text-align: center;
+}
+.tabs li.active a {
+	color: #DC3522;
+}
+.accordion_tabs {
+	display: none;
+	border-bottom: 1px solid #712D0F;
+	padding: 10px;
+	font-weight: 400;
+}
+a.accordion_tabs:link, a.accordion_tabs:visited {
+	color: #21759B;
+	border-bottom: 1px solid #712D0F;
+}
+a.accordion_tabs:hover {
+	color: #D54E21;
+	border-bottom: 1px solid #712D0F;
+	background: #461B09;
+}
+a.accordion_tabs.active {
+	color: #000;
+}
+.tab-content {
+	border: 0;
+	border-top: none;
+	display: none;
+	padding: 10px;
+}
+.menu-list {
+	margin: 12px 0;
+	background: #fff;
+	padding: 15px 0px;
+	text-align: left;
+	border: 1px dashed #ccc;
+}
+.menu-list .row {
+	padding: 0;
+	margin: 0;
+}
+.menu-list img {
+	border: 1px solid #eee;
+	padding: 10px;
+}
+.menu-list h4 {
+	margin: 5px 0 15px 0;
+	font-size: 18px;
+	color: #7B4906;
+}
+.menu-list p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 25px;
+	color: #555;
+}
+.menu-price {
+	text-align: right;
+}
+.menu-price {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: 1px solid #FEEDF1;
+	background: #FFF9FA;
+	height: 60px;
+	width: 60px;
+	margin-top: 20px;
+}
+.menu-price h4 {
+	font-family: 'Francois+One', sans-serif;
+}
+.menu-price p {
+	line-height: 60px !important;
+	text-align: center !important;
+	color: #CE2304 !important;
+	font-size: 17px !important;
+	font-family: 'Francois+One', sans-serif;
+	letter-spacing: -1px;
+}
+
+
+/*===============================
+	7. Today Special Section
+===============================*/
+
+
+.today-special {
+	padding: 90px 0;
+	text-align: center;
+}
+.special-food {
+	padding: 10px 40px;
+	margin: 50px 0px;
+}
+.today-special-slide:hover {
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+.today-special-slide:active {
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+.special-food img {
+	margin-bottom: 25px;
+}
+.special-food h4 {
+	font-size: 25px;
+	color: #7B4906;
+}
+.special-food p {
+	font-size: 18px;
+	line-height: 33px;
+	margin-top: 15px;
+}
+.special-food h5 {
+	font-size: 20px;
+	color: #dc3522;
+	margin-top: 22px;
+}
+.special-food h5 span.old {
+	text-decoration: line-through;
+	font-size: 19px;
+	padding-left: 10px;
+	color: #999;
+}
+.today-special .owl-theme .owl-controls .owl-buttons div .fa {
+	line-height: 43px;
+	background: #efefef;
+	border: 1px solid #eee;
+	font-size: 30px;
+	height: 45px;
+	width: 45px;
+}
+
+
+/*===============================
+	8. Staff Member Section
+===============================*/
+
+.staff-member {
+	padding: 90px 0;
+	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid #f0f0f0;
+	text-align: center;
+	background: #2C0B0A url(../images/background-1.jpg);
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-size: 100% 100%;
+	position: relative;
+	
+}
+.staff-member:before {
+	background: #1E0706;
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: 0.9;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.staff-member .container {
+	z-index: 9 !important;
+	position: relative;
+}
+.staff-box {
+	margin: 40px 35px 50px 35px;
+}
+.staff-member-slide:hover {
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+.staff-member-slide:active {
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+.staff-box img {
+	width: 100%;
+	border: 10px solid #fff;
+	box-shadow: 2px 2px 0px rgba(0,0,0, 0.09);
+	transition: all 0.1s ease-in;
+	margin-bottom: 10px;
+}
+.staff-box img:hover {
+	border: 10px solid #efefef;
+	position: relative;
+	z-index: 10;
+	transition: all 0.1s ease-in;
+}
+.staff-box h4 {
+	font-size: 20px;
+	color: #fff;
+	text-transform: uppercase;
+}
+.staff-box p {
+	color: #FF7701;
+	font-size: 18px;
+}
+.staff-box li {
+	display: inline-block;
+	padding: 0 6px;
+	font-size: 16px;
+}
+.staff-box li a {
+	color: #FC9AB3;
+	transition: all 0.1s ease-in;
+}
+.staff-box li a:hover {
+	color: #fff;
+}
+.staff-member .owl-theme .owl-controls .owl-buttons div .fa {
+	line-height: 43px;
+	background: #efefef;
+	border: 1px solid #eee;
+	font-size: 30px;
+	height: 45px;
+	width: 45px;
+}
+
+
+/*===============================
+	9. Recent Update Section
+===============================*/
+
+
+.recent-update {
+	padding: 90px 0;
+	text-align: center;
+}
+.news-block {
+	margin-top: 20px;
+}
+.news-img {
+	margin-bottom: 25px;
+	position: relative;
+}
+.news-date {
+	background-color: #fff;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	text-align: center;
+	line-height: 1;
+	text-transform: uppercase;
+	padding: 10px 13px;
+}
+.news-date .date {
+	font-size: 18px;
+	color: #2e3233;
+	font-weight: 600;
+}
+.news-date .month {
+	font-size: 12px;
+	color: #2e3233;
+	margin-top: 4px;
+}
+.news-date .year {
+	font-size: 16px;
+	color: #2e3233;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.news-block {
+	margin: 40px 25px;
+}
+.news-block-slide:hover {
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+.news-block-slide:active {
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+.news-block h3 {
+	font-size: 18px;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+.news-block h3 a {
+	color: #D32407;
+}
+.news-block p {
+	font-size: 17px;
+	line-height: 28px;
+	color: #555;
+}
+.news-block .readmore {
+	margin-top: 15px;
+}
+.recent-update .owl-theme .owl-controls .owl-buttons div .fa {
+	line-height: 43px;
+	background: #efefef;
+	border: 1px solid #eee;
+	font-size: 30px;
+	height: 45px;
+	width: 45px;
+}
+
+
+/*===============================
+   10. Food Gallery Section
+===============================*/
+
+.food-gallery {
+	background: rgba(0, 0, 0, 0) url("../images/background.jpg") repeat scroll 0 0;
+	border-bottom: 1px solid #ebe6d8;
+	border-top: 1px solid #ebe6d8;
+	padding: 90px 0;
+	background-attachment: fixed;
+	text-align: center;
+}
+.food-gallery .container {
+	z-index: 9 !important;
+	position: relative;
+}
+food-gallery {
+	padding: 90px 0;
+	text-align: center;
+}
+.food-gallery .row {
+	margin-top: 50px;
+}
+.food-gallery .col-md-4 {
+	margin: 15px 0;
+}
+.gallery-effect {
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+.gallery-img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border: none;
+	transform: scale(1);
+	transition: all 1s;
+}
+.food-gallery .col-md-4 :hover .gallery-img {
+	transform: scale(1.05);
+}
+.gallery-overlay {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	background: #000 url(../images/zoom.png) no-repeat center 40%;
+	background-size: 50px 50px;
+	opacity: 0;
+	filter: alpha(opacity=0);/*For IE6 - IE8*/
+	transition: all 0.6s;
+}
+.food-gallery .col-md-4:hover .gallery-overlay {
+	opacity: 0.8;
+}
+.food-gallery-text {
+	display: block;
+	padding: 0 30px;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	text-transform: capitalize;
+	font-size: 18px;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300 !important;
+	top: 60%;
+	color: white;
+	opacity: 0;
+	filter: alpha(opacity=0);/*For older IE*/
+	transform: translateY(-20px);
+	transition: all .3s;
+	text-decoration: none;
+}
+.food-gallery .col-md-4:hover .food-gallery-text {
+	transform: translateY(0px);
+	opacity: 0.9;
+}
+
+
+/*===============================
+   11. Testimonials Section
+===============================*/
+
+.customer-testimonials {
+	border-top: 1px solid #EBE6D8;
+	background: #fff;
+	padding: 90px 0;
+	text-align: center;
+}
+.customer-testimonials .owl-theme .owl-controls {
+	margin-top: 15px;
+}
+.customer-testimonial-text {
+	background: #F8F5F1;
+	border: 1px solid #EBE6D8;
+	padding: 20px;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	margin-top: 90px;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+.customer-testimonial-text:hover {
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+.customer-testimonial-text:active {
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+.customer-testimonial-text img {
+}
+.customer-testimonial-text img {
+	width: 130px;
+	height: 130px;
+	background: #fff;
+	padding: 15px;
+	position: relative;
+	margin-top: -80px;
+	margin-bottom: 15px;
+}
+.customer-testimonial-text h5 {
+	line-height: 30px;
+	font-size: 20px;
+	margin-top: 40px;
+	color: #000;
+	font-weight: 600;
+}
+.customer-testimonial-text h5 span {
+	display: block;
+	width: 100%;
+	color: #333;
+	letter-spacing: 1px;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+
+/*===============================
+   12. Contact Form Section
+===============================*/
+
+
+.contact-form {
+	padding: 90px 0;
+	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid #f0f0f0;
+	text-align: center;
+	background: #2C0B0A url(../images/background-1.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	position: relative;
+}
+.contact-form:before {
+	background: #1e0706;
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: 0.9;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.contact-form .container {
+	z-index: 9 !important;
+	position: relative;
+}
+.contact-form .form {
+	margin-top: 70px;
+}
+.contact-form .form-control {
+	background: #f7f7f7;
+	border: 1px solid #eee;
+	border-radius: 0;
+	box-shadow: none;
+	color: #000;
+	display: block;
+	font-size: 15px;
+	height: 54px;
+	padding: 6px 12px;
+	transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
+	width: 100%
+}
+.contact-form textarea.form-control {
+	height: 200px;
+	padding-top: 20px
+}
+.contact-form label.error {
+	text-align: left;
+	float: left;
+}
+
+
+/*===============================
+  13. Google Map Section
+===============================*/
+
+
+#google-container {
+    height: 500px;
+  }
+#cd-google-map {
+  position: relative;
+}
+#cd-zoom-in, #cd-zoom-out {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: rgba(211, 104, 104, 0.9);
+  background-repeat: no-repeat;
+  background-size: 32px 64px;
+  background-image: url("../images/cd-icon-controller.svg");
+}
+.no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
+  background-color: #d36868;
+}
+#cd-zoom-in {
+  background-position: 50% 0;
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+#cd-zoom-out {
+  background-position: 50% -32px;
+}
+
+/*===============================
+  14. Footer Section
+===============================*/
+
+
+/*Top Footer Section*/
+
+.footer-blog {
+	margin: 80px 0;
+	overflow: hidden;
+	text-align: center;
+}
+.footer-blog:after {
+	background: #ccc;
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 1px;
+}
+.footer-blog.last:after {
+	display: none;
+}
+.footer-blog i {
+	color: #333;
+	display: block;
+	font-size: 48px;
+	padding-bottom: 20px;
+}
+.footer-blog a {
+	color: #333;
+	display: block;
+	font-weight: 300;
+	line-height: 26px;
+	margin-top: 7px;
+}
+.footer-blog a:hover {
+	text-decoration: none;
+}
+.footer-blog span {
+	color: #333;
+	display: block;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 27px;
+	text-transform: uppercase;
+}
+.footer-blog p {
+	color: #555;
+	display: block;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 22px;
+	margin-top: 7px;
+}
+/*Bottom Footer Section*/
+.bottom-footer {
+	background: #361507;
+}
+.bottom-footer-left {
+	margin: 25px 0;
+}
+.bottom-footer-right {
+	margin: 25px 0;
+	text-align: right;
+}
+.bottom-footer p {
+	color: #ccc;
+	font-size: 16px;
+}
+.bottom-footer ul.social {
+	list-style: none;
+}
+.bottom-footer ul.social li {
+	display: inline;
+	padding: 0;
+	margin: 0 5px;
+}
+.bottom-footer ul.social li a {
+	display: inline-block;
+	margi: 0 auto;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	font-size: 16px;
+	position: relative;
+	background-color: #D3D3D3;
+}
+.bottom-footer ul.social li a i {
+	color: #361507;
+	text-align: center;
+	margin: 0;
+	line-height: 30px;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+.bottom-footer ul.social li a:hover i {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+	color: #fff;
+}
+.bottom-footer .social li a.facebook:hover {
+	background-color: #3B5998;
+}
+.bottom-footer .social li a.twitter:hover {
+	background-color: #33ccff;
+}
+.bottom-footer .social li a.google-plus:hover {
+	background-color: #BD3518;
+}
+.bottom-footer .social li a.pinterest:hover {
+	background-color: #BD081C;
+}
+
+
+/*===============================
+  15.  About us page
+===============================*/
+
+.inner-page-header {
+	padding: 240px 0 10px 0;
+	text-align: center;
+	background: #f7f7f7 url(../images/background-1.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	position: relative;
+}
+.inner-page-header:before {
+	background: #000;
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: 0.8;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.inner-page-header .container {
+	z-index: 9 !important;
+	position: relative;
+}
+.inner-page-header .title-white h2 {
+	color: #FF8E1A;
+	font-size: 55px;
+}
+.page-breadcrumb {
+	padding-top: 15px;
+}
+.page-breadcrumb > ul > li {
+	color: #F5C1BC;
+	display: inline;
+	list-style: none;
+	font-size: 14px;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+.page-breadcrumb > ul > li + li:before {
+	color: #F8D5D1;
+	content: "+";
+	margin: 0 10px 0 8px;
+}
+.page-breadcrumb > ul > li .fa-home {
+	margin-right: 2px;
+}
+.page-breadcrumb > ul li a {
+	color: #EA8D86;
+}
+.page-breadcrumb > ul li a:hover {
+	color: #F5C1BC;
+}
+.cms-contain {
+	padding: 70px 0 90px 0;
+}
+.cms-contain ul, .cms-contain ol {
+	padding: 20px;
+}
+.cms-contain ul li {
+	list-style: square;
+}
+.cms-contain ul li, .cms-contain ol li {
+	font-size: 18px;
+	line-height: 25px;
+	padding: 7px 0;
+}
+
+
+/*===============================
+  16.  Service Page
+===============================*/
+
+.service {
+	background: rgba(0, 0, 0, 0) url("../images/background.jpg") repeat scroll 0 0;
+	border-bottom: 1px solid #ebe6d8;
+	border-top: 1px solid #ebe6d8;
+	padding: 90px 0;
+	background-attachment: fixed;
+	text-align: center;
+}
+.service-list {
+	margin: 12px 0;
+	background: #fff;
+	padding: 15px;
+	text-align: left;
+	border: 1px dashed #ccc;
+}
+.service-list img {
+	border: 1px solid #eee;
+	padding: 10px;
+}
+.service-list h4 {
+	margin: 5px 0 15px 0;
+	font-size: 18px;
+	color: #7B4906;
+}
+.service-list h4 a {
+	color: #7B4906;
+}
+.service-list h4 a:hover {
+	color: #A06007;
+}
+.service-list p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 25px;
+	color: #555;
+}
+.service-icon {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: 1px dashed #291005;
+	background: #fff;
+	height: 70px;
+	width: 70px;
+	margin-top: 12px;
+	text-align: center;
+}
+.service-icon .fa {
+	line-height: 70px !important;
+	text-align: center !important;
+	color: #341407 !important;
+	font-size: 25px !important;
+}
+
+
+/*===============================
+  17. Team Page
+===============================*/
+
+
+.innerpage-staff-list {
+	background: none;
+}
+.innerpage-staff-list:before {
+	background: none;
+}
+.innerpage-staff-list .staff-box {
+	background: #351910;
+	padding-bottom: 7px;
+}
+.staff-details {
+	padding: 90px 0;
+}
+.staff-details ul, .staff-details ol {
+	padding: 20px 25px;
+}
+.staff-details ul li, .staff-details ol li {
+	font-size: 18px;
+	line-height: 25px;
+	padding: 7px 0;
+	display: list-item
+}
+.staff-details ul li {
+	list-style: circle
+}
+.staff-details .staff-box {
+	margin: 0
+}
+.staff-details .staff-box h4 {
+	color: #DC3522;
+	font-size: 34px;
+	margin-top: 0;
+}
+.staff-details .staff-box h5 {
+	font-size: 17px;
+	font-weight: 600;
+}
+.staff-details .staff-box h5 span {
+	color: #666;
+	font-size: 16px
+}
+.staff-details .staff-box p {
+	color: #333;
+	line-height: 34px;
+	padding-top: 15px;
+}
+.staff-details .staff-box ul.social {
+	padding: 15px 0 0 0;
+}
+.staff-details .staff-box ul.social li {
+	padding: 0 10px 0 0;
+	display: inline;
+	list-style: none;
+}
+.staff-details .staff-box ul.social li .fa {
+	color: #fff;
+	transition: all 0.1s ease-in;
+	background: #DC3522;
+	height: 35px;
+	width: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 18px;
+}
+.staff-details .staff-box ul.social li .fa:hover {
+	opacity: 0.9;
+}
+
+
+
+/*===============================
+  18. Blog Page
+===============================*/ 
+
+.blog-details {
+	text-align: left;
+}
+
+
+/*===============================
+  19. Gallery Page
+===============================*/ 
+
+#page .food-gallery {
+	background: #fff;
+	padding-top: 50px;
+}
+.food-showcase .mix {
+	display: none;
+}
+.food-controls ul li {
+	list-style: none;
+	display: inline;
+	cursor: pointer;
+	padding: 10px 20px;
+	color: #DC3522;
+	font-weight: 500;
+	font-size: 20px;
+}
+.food-controls li.active {
+	color: #EA7015;
+}
+
+
+/*===============================
+  20. Reservation Page
+===============================*/ 
+
+
+.reservation {
+	padding: 90px 0;
+}
+.reservation .form-control {
+	background: #f9f9f9;
+	border: 1px solid #eee;
+	border-radius: 0;
+	box-shadow: none;
+	color: #000;
+	display: block;
+	font-size: 15px;
+	height: 54px;
+	padding: 6px 12px;
+	transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
+	width: 100%
+}
+.reservation textarea.form-control {
+	height: 200px;
+	padding-top: 20px
+}
+.reservation label {
+	font-size: 16px;
+	font-weight: 300;
+	color: #000;
+}
+.reservation .form-group {
+	margin: 30px 0;
+}
+.form .error {
+	color: #DC3522;
+	padding-top: 3px;
+	font-weight:300;
+}
+
+
+/*===============================
+   21. Testimonial Page
+===============================*/ 
+
+
+.testimonial-list {
+	text-align: left;
+	background: #F8F5F1;
+	border: 1px solid #EBE6D8;
+	padding: 20px;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	margin: 15px 0;
+}
+.testimonial-list .customer-testimonial-text {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: 0;
+	cursor: default
+}
+.testimonial-list img {
+	border: 1px solid #fff;
+	padding: 3px;
+}
+.testimonial-list .customer-testimonial-text h5 {
+	color: #DC3522;
+	margin: 25px 0 10px 0;
+}
+.testimonial-list .customer-testimonial-text h5 span {
+	font-size: 15px;
+	font-weight: bold;
+}
+#page .customer-testimonial-text {
+	cursor: default !important
+}
+#page .customer-testimonial-text:hover {
+	cursor: default !important
+}
+
+
+/*===============================
+  22. Contact Page
+===============================*/ 
+
+.contact-part {
+	text-align: left;
+}
+.contact-part .title h2 {
+	font-size: 40px;
+}
+.contact-part .contact-form {
+	background: none;
+	text-align: left;
+}
+.contact-part .contact-form .form {
+	margin-top: 20px;
+}
+.contact-part .contact-form:before {
+	background: none;
+}
+.contact-address {
+	padding: 90px 0;
+}
+.contact-address p {
+	line-height: 45px;
+	padding-top: 15px;
+}
+.contact-address p a {
+	color: #2C3038;
+}
+.contact-address p a:hover {
+	color: #000;
+}
+.contact-address p .fa {
+	padding-right: 5px;
+}
+
+
+/*===============================
+  23. 404error Page
+===============================*/ 
+
+.error-part {
+	text-align: center;
+	padding: 90px 0;
+}
+.error-part h2 {
+	font-size: 75px;
+	font-family: 'Francois One', sans-serif;
+	color: #DC3522;
+	line-height: 75px;
+	text-transform: uppercase !important;
+	margin-top: 0px;
+}
+
+
+/*===============================
+   24. Scroll Top Section
+===============================*/
+
+.return-to-top {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	display: none;
+	font-size: 22px;
+	cursor: pointer;
+	z-index: 9;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	padding: 15px;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+}
+.return-to-top:hover {
+	background: rgba(0, 0, 0, 0.9);
+}
+
+
+/*===============================
+  25. Page Loader
+===============================*/
+
+
+#preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	background-image: url(../images/loader.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #fff;
+}

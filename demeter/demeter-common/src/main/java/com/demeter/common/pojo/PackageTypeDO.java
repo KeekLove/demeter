@@ -13,7 +13,7 @@ import java.sql.Date;
 public class PackageTypeDO implements Serializable {
     private Long id;
     private int avticeNum;
-    private int prize;
+    private Double prize;
 
     private Date createTime;
     private Date updateTime;
@@ -22,7 +22,7 @@ public class PackageTypeDO implements Serializable {
     public PackageTypeDO() {
     }
 
-    public PackageTypeDO(Long id, int avticeNum, int prize, Date createTime, Date updateTime, int del) {
+    public PackageTypeDO(Long id, int avticeNum, Double prize, Date createTime, Date updateTime, int del) {
         this.id = id;
         this.avticeNum = avticeNum;
         this.prize = prize;
@@ -47,11 +47,11 @@ public class PackageTypeDO implements Serializable {
         this.avticeNum = avticeNum;
     }
 
-    public int getPrize() {
+    public Double getPrize() {
         return prize;
     }
 
-    public void setPrize(int prize) {
+    public void setPrize(Double prize) {
         this.prize = prize;
     }
 

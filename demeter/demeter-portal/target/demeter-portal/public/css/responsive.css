@@ -1,0 +1,371 @@
+
+/* Desktop Layout */
+@media only screen and (max-width:1199px) {
+.cssmenu ul li a {
+	padding: 10px 16px;
+}
+.innerpage-staff-list .staff-box {
+	margin: 20px;
+}
+}
+
+/* Tablet Layout */
+@media only screen and (max-width:991px) {
+.logo-holder {
+	text-align: center
+}
+.inner-page-header {
+	padding-top: 270px;
+}
+.cssmenu {
+	width: auto;
+}
+.cssmenu ul ul {
+	background: #782727!important;
+}
+.cssmenu.align-center ul {
+	text-align: left
+}
+.cssmenu.align-right > ul > li {
+	float: none
+}
+.cssmenu ul {
+	width: auto;
+}
+.cssmenu .submenuArrow, .cssmenu #indicatorContainer {
+	display: none
+}
+.cssmenu > ul {
+	height: auto;
+	display: block;
+}
+.cssmenu > ul > li {
+	float: none;
+}
+.cssmenu li, .cssmenu > ul > li {
+	display: none
+}
+.cssmenu ul ul, .cssmenu ul ul ul, .cssmenu ul > li:hover > ul, .cssmenu ul ul > li:hover > ul, .cssmenu.align-right ul ul, .cssmenu.align-right ul ul ul, .cssmenu.align-right ul > li:hover > ul, .cssmenu.align-right ul ul > li:hover > ul {
+	position: relative;
+	left: auto;
+	top: auto;
+	opacity: 1;
+	padding-left: 0;
+	padding-right: 0;
+	right: auto
+}
+.cssmenu ul .has-sub::after {
+	display: none
+}
+.cssmenu ul li a {
+	padding: 10px 20px !important;
+}
+.cssmenu ul ul li a {
+	border: 0;
+	background: none;
+	width: auto;
+	padding: 10px 35px !important;
+	color: #fff;
+	font-size: 16px;
+}
+.cssmenu.align-right ul ul li a {
+	text-align: left
+}
+.cssmenu ul ul li:hover > a {
+	background: none;
+	color: #8c9195
+}
+.cssmenu ul ul ul a {
+	padding: 8px 50px
+}
+.cssmenu ul ul ul ul a {
+	padding: 8px 65px
+}
+.cssmenu ul ul ul ul ul a {
+	padding: 8px 80px
+}
+.cssmenu ul ul ul ul ul ul a {
+	padding: 8px 95px
+}
+.cssmenu > ul > #menu-button {
+	display: block;
+	cursor: pointer;
+	padding-top: 0;
+}
+.cssmenu #menu-button > a {
+	padding: 15px 20px !important
+}
+.cssmenu ul.open li, .cssmenu > ul.open > li {
+	display: block;
+	background: #993333;
+	border: none;
+	padding: 5px 0;
+}
+.cssmenu > ul.open > li#menu-button > a {
+	color: #fff;
+	border-bottom: 1px solid #c04343
+}
+.cssmenu ul ul::after {
+	display: none
+}
+.cssmenu #menu-button::after {
+	display: block;
+	content: '';
+	position: absolute;
+	height: 3px;
+	width: 22px;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	right: 20px;
+	top: 20px
+}
+.cssmenu #menu-button::before {
+	display: block;
+	content: '';
+	position: absolute;
+	height: 3px;
+	width: 22px;
+	border-top: 4px solid #fff;
+	right: 20px;
+	top: 30px
+}
+.cssmenu ul.open #menu-button::after, .cssmenu ul.open #menu-button::before {
+	border-color: #fff
+}
+.cssmenu ul ul {
+	position: absolute;
+	left: -9999px;
+	top: 0!important;
+	opacity: 0;
+	-webkit-transition: opacity .3s ease, top .25s ease;
+	-moz-transition: opacity .3s ease, top .25s ease;
+	-ms-transition: opacity .3s ease, top .25s ease;
+	-o-transition: opacity .3s ease, top .25s ease;
+	transition: opacity .3s ease, top .25s ease;
+	z-index: 1000;
+	border-top: 1px solid #fff;
+	border-left: none;
+}
+.cssmenu ul ul li {
+	background: #782727!important;
+	padding: 10px 0
+}
+.cssmenu ul ul ul li {
+	background: #531C1C!important;
+	padding: 10px 0
+}
+.cssmenu ul ul li a:hover {
+	color: #fff
+}
+#header-holder-2 .header-info {
+	margin: 0px 0 15px 0;
+}
+#header-holder-2 .cssmenu ul li {
+	padding: 0;
+	border-right: 0;
+}
+#header-holder-2 .cssmenu ul li a {
+	padding: 18px 25px !important;
+}
+#header-holder-2 .cssmenu ul ul {
+	top: 0px!important;
+}
+#header-holder-2 .cssmenu #menu-button:before {
+	top: 33px;
+}
+#header-holder-2 .cssmenu #menu-button:after {
+	top: 23px;
+}
+.top-footer {
+	padding: 30px 0;
+}
+.footer-blog {
+	margin: 55px 0;
+}
+.footer-blog:after {
+	background: #fff;
+}
+.bottom-footer, .bottom-footer ul.social {
+	text-align: center;
+}
+.slide-text {
+	top: 45%;
+}
+.error-part {
+	min-height: 700px;
+}
+}
+
+/* Mobile Layout */
+@media only screen and (max-width:767px) {
+.upper-header .social-link {
+	display: none;
+}
+.upper-header p {
+	text-align: center;
+}
+.main-header .col-md-9 {
+	padding: 0;
+}
+#header-holder-2 .icon-box {
+	display: none;
+}
+#header-holder-2 .header-content {
+	display: inline;
+	text-align: center;
+}
+.slide-text h1, .slide-text p {
+	display: none;
+}
+.slide-text {
+	top: 70%;
+}
+.introduction {
+	text-align: center;
+}
+.introduction span.right-underline:before, .introduction span.right-underline:after {
+	background: #F4BFB9;
+	content: "";
+	height: 1px;
+	position: absolute;
+	top: 5px;
+	width: 100px;
+	z-index: -1;
+}
+.menu-controls ul li {
+	padding: 10px;
+	font-size: 15px;
+}
+.tabs {
+	display: none;
+}
+.accordion_tabs {
+	display: block;
+}
+.tab-content {
+	border: none;
+}
+.accordion_tabs {
+	background: #361507;
+	padding: 25px 10px;
+	font-size: 18px;
+	color: #fff !important;
+	text-transform: uppercase;
+}
+.menu-price {
+	text-align: left;
+	padding-top: 30px;
+}
+.food-menu .row {
+	margin-top: 0;
+}
+.menu-title {
+	margin-top: 20px;
+}
+.menu-list, .menu-price {
+	text-align: center;
+}
+.menu-price {
+	width: 100%;
+	height: auto;
+	background: none;
+	border: 0;
+	padding: 0;
+	margin-top: 10px;
+}
+.menu-price p, .menu-list h4 {
+	font-size: 23px !important;
+}
+.menu-image img {
+	width: 300px;
+	margin: 0 auto;
+}
+.contact-form .form .col-xs-12 {
+	margin: 5px 0
+}
+.contact-form .form .form-group {
+	margin-bottom: 0
+}
+#google-container {
+	height: 300px;
+}
+#cd-zoom-in, #cd-zoom-out {
+	margin-left: 50px;
+}
+#cd-zoom-in {
+	margin-top: 50px;
+}
+.service-list {
+	text-align: center;
+}
+.service-icon {
+	margin: 0 auto 15px auto;
+}
+.staff-details .col-md-8 {
+	margin-top: 30px;
+}
+.food-controls {
+	text-align: center;
+}
+.food-controls ul li {
+	line-height: 50px;
+	color: #DC3522;
+	background: #FBE6E3;
+	border: 1px dashed #F8D0CB;
+}
+.reservation .form-group {
+	margin: 0;
+}
+.reservation .form-group label {
+	margin-top: 20px;
+}
+#page .customer-testimonial-text {
+	margin-bottom: 30px;
+}
+.testimonial-list img {
+	margin-bottom: 20px;
+	width: 100%;
+}
+}
+
+/* Mobile Layout */
+@media only screen and (max-width:580px) {
+.slide-text {
+	display: none;
+}
+}
+
+/* Small Mobile Layout */
+@media only screen and (max-width:480px) {
+header {
+	padding-bottom: 0px;
+}
+.menu-controls ul li {
+	display: block;
+	font-size: 17px;
+}
+.special-food img {
+	width: 100%;
+	height: auto;
+}
+.inner-page-header .title-white h2{ 
+    font-size:45px;
+}
+}
+
+/* Small Mobile Layout */
+@media only screen and (max-width:380px) {
+.custom-menu {
+	background: #993333;
+}
+.cssmenu > ul > li {
+	padding: 0;
+}
+.menu-image img {
+	width: 100%;
+	height: auto;
+}
+.food-controls ul li {
+	display: block;
+}
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0 0;
+            padding: 0 0;
+            background-color: rgb(255, 255, 255);
+        }
+        #backgrount{
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        #banner{
+            width: 100%;
+        }
+        #banner2{
+            right: 20px;
+            height: 80%;
+            position: absolute;
+            top: -50px;
+            animation: myMove 4s infinite;
+            -webkit-animation: myMove 4s infinite;
+            /* infinite 表示无限循环 */
+        }
+        @keyframes myMove {
+            0% {
+                top: -50px;
+            }
+
+            50% {
+                top: 50px;
+            }
+
+            100% {
+                top: -50px;
+            }
+        }
+
+        @-webkit-keyframes myMove {
+            0% {
+                top: -50px;
+            }
+            50% {
+                top: 100px;
+            }
+            100% {
+                top: -50px;
+            }
+        }
+        h4{
+            position: fixed;
+            top: 10px;
+            font-size: 90px;
+            color: #3a4651;
+            font-family: "宋体";
+        }
+        p{
+            position: fixed;
+            top: 10px;
+            font-size: 20px;
+            color: white;
+            font-family: "宋体";
+        }
+        #foot{
+            width: 100%;
+            min-height: 200px;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .foot{
+            margin-top: 15px;
+            width: 400px;
+            height: 150px;
+            background-color: rgba(255, 174, 71, 0.91);
+            float: left;
+            border-radius: 30px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-size: 50px;
+            cursor: pointer;
+            -webkit-box-shadow: #666 0px 0px 10px;
+            -moz-box-shadow: #666 0px 0px 10px;
+            box-shadow: #666 0px 0px 10px;
+            color: white;
+            z-index: 9;
+        }
+        .gap{
+            width: 20px;
+            height: 150px;
+            float: left;
+        }
+        .foot:hover{
+            background-color: rgb(255, 169, 91);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="backgrount">
+        <h4 th:text="${name}">悦来客栈</h4>
+        <p >云智慧餐厅</p>
+        <img id="banner" src="/public/images/img/banner.png">
+        <img id="banner2" src="/public/images/img/banner_02.png">
+    </div>
+    <div id="foot"  class="btn-group" data-toggle="buttons">
+        <div class="foot" id="chef">工作台</div>
+        <div class="gap"></div>
+        <div  class="foot" id="waiter">打烊</div>
+        <div class="gap"></div>
+
+        <div  class="foot" id="other">二维码</div>
+    </div>
+</body>
+<div type="hidden" style="display:none;"  id="card" th:text="${card}"></div>
+<script type="text/javascript">
+    $("#other").click(function () {
+        window.location.href = "/cook/qrCode?card="+$("#card").text();
+    })
+    $("#chef").click(function () {
+        window.location.href = "/cook/chef?waitNum=0&card="+$("#card").text();
+    })
+    $("#waiter").click(function () {
+        window.location.href = "/cook/close?waitNum=0&card="+$("#card").text();
+    })
+</script>
+</html>

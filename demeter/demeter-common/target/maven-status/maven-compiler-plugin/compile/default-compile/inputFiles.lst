@@ -1,3 +1,4 @@
+D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\pay\Pay.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\util\jedis\JedisClient.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\pojo\OrderUserDO.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\util\FileSave.java
@@ -5,6 +6,7 @@ D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\co
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\pojo\UserInfoDO.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\data\Transation.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\mybatis\MybatisManager.java
+D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\pojo\dto\PayDto.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\pojo\PackageTypeDO.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\util\PropertiesUtils.java
 D:\workspace\SpringWorkSpace\demeter\demeter-common\src\main\java\com\demeter\common\pojo\OrderFoodDO.java

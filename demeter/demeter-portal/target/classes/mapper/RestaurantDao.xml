@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.portal.dao.RestaurantDao">
+    <select id="selectRestaurantInfo" resultType="com.demeter.common.pojo.RestaurantInfoDO">
+        SELECT
+        *
+        FROM
+        manager_info WHERE id=#{id}
+    </select>
+
+    <select id="findListRestaurantInfo" resultType="com.demeter.common.pojo.RestaurantInfoDO">
+        SELECT
+	`id`,
+	`register_id`,
+	`about`,
+	`icon`,
+	`name`,
+	`card`,
+	`province`,
+	`city`,
+	`address`,
+	`fail_reason`,
+	`stop_time`,
+	`user_id`,
+	`create_time`,
+	`update_time`,
+	`del`
+FROM
+	restaurant_info
+WHERE user_id=#{userid}
+    </select>
+    <select id="findListRestaurantInfoById" resultType="com.demeter.common.pojo.RestaurantInfoDO">
+        SELECT
+	`id`,
+	`register_id`,
+	`about`,
+	`icon`,
+	`name`,
+	`card`,
+	`province`,
+	`city`,
+	`address`,
+	`fail_reason`,
+	`stop_time`,
+	`user_id`,
+	`create_time`,
+	`update_time`,
+	`del`
+FROM
+	restaurant_info
+WHERE id=#{byid}
+    </select>
+</mapper>

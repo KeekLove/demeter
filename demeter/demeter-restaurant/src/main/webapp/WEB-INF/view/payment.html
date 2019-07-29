@@ -11,22 +11,32 @@
 <body>
 <div class="pay_top">
     <p>实付金额</p>
-    <p>¥ 60.4</p>
+    <p th:text="'¥ '+${total}">金额加载中</p>
 </div>
 <div class="invoice">
-    <div>店铺名称</div>
-    <span>味千拉面（上海长寿路二分店）</span>
+    <div>备注：</div>
+    <span th:text="${remark}">味千拉面（上海长寿路二分店）</span>
 </div>
-<div class="invoice" style="margin-bottom:0;">
-    <div class="wxlogo">微信支付</div>
-    <input type="radio" name="payment" class="payment">
-</div>
+<!--<div class="invoice" style="margin-bottom:0;">-->
+<!--    <div class="wxlogo">微信支付</div>-->
+<!--    <input type="radio" name="payment" class="payment">-->
+<!--</div>-->
 <div class="invoice">
     <div class="zfblogo">支付宝支付</div>
     <input type="radio" name="payment" class="payment">
 </div>
 <div class="paydiv">
-    <a href="/order/paymentResults"><button class="paybtn">确定付款</button></a>
+    <a ><button class="paybtn">确定付款</button></a>
 </div>
+<a id="result" th:text="${result}" style="display: none"></a>
+<script src="/public/js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(".paybtn").click(function () {
+        // 已选中支付宝支付
+        if ($(".payment").is(':checked')) {
+            window.location.href = "/order/pay?result="+$("#result").text();
+        }
+    })
+</script>
 </body>
 </html>

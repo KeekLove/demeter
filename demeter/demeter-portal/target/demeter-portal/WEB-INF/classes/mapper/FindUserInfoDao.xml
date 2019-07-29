@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.portal.dao.FindUserInfoDao">
+
+    <select id="FindListUserInfoDao" resultType="com.demeter.portal.pojo.UserInfo">
+        SELECT
+        distinct
+uif.id,
+rif.name,
+uif.phone,
+of.state
+FROM user_info AS uif,restaurant_info AS rif,order_food AS of
+WHERE uif.id = 1
+AND of.state = 3
+AND rif.user_id=uif.id
+AND of.restaurant_id=rif.id
+
+    </select>
+    <select id="FindListnumRestautant" resultType="java.lang.Integer">
+    SELECT
+COUNT(rif.`name`)
+FROM restaurant_info AS rif
+WHERE user_id=#{id}
+
+    </select>
+    <select id="FindListnumOrder" resultType="java.lang.Integer">
+        SELECT
+COUNT(of.state)
+FROM order_food AS of
+WHERE state=#{state}
+    </select>
+
+
+
+</mapper>

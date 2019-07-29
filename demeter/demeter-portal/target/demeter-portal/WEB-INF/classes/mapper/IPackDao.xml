@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demeter.portal.dao.IPackDao">
+    <select id="findListPack" resultType="com.demeter.common.pojo.PackageTypeDO">
+        SELECT
+            *
+        FROM
+            package_type
+        WHERE
+            del = 1
+    </select>
+</mapper>
