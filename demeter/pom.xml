@@ -49,7 +49,7 @@
      <alipay.version>3.7.4.ALL</alipay.version>
     <!--阿里巴巴json处理-->
       <jackson-core.version>2.9.8</jackson-core.version>
-     <fastjson.version>1.2.58</fastjson.version>
+     <fastjson.version>1.2.83</fastjson.version>
     <!--分页操作-->
     <pagehelper.version>4.1.4</pagehelper.version>
     <!--servlet配置-->
