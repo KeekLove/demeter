@@ -31,7 +31,7 @@
     <!--mybatis和spring整合-->
     <mybatis-spring.version>2.0.1</mybatis-spring.version>
     <!-- mysql-->
-    <mysql.version>8.0.13</mysql.version>
+    <mysql.version>8.0.28</mysql.version>
     <!--druid-->
     <druid.version>1.1.19</druid.version>
     <!--文件上传相关-->
